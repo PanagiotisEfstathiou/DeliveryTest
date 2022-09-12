@@ -3,7 +3,7 @@ package com.example.test;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -25,16 +25,14 @@ public class Store extends BaseModel {
 
     @Enumerated(EnumType.STRING)
     @Column(length=15, nullable =false)
-    @ElementCollection
-    private List<StoreCategory> storeCategory;
+    private StoreCategory storeCategory;
+
+
+    @Column
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "store", cascade = CascadeType.ALL)
+    private Set<Product> catalog;
 
 
 
-
-
-    @Enumerated(EnumType.STRING)
-    @Column(length=15, nullable =false)
-    @ElementCollection
-    private List<Rating> ratings;
 
 }

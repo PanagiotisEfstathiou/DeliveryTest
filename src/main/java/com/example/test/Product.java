@@ -3,9 +3,7 @@ package com.example.test;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -26,6 +24,8 @@ public class Product extends BaseModel {
     @Column(precision = 10, scale = 2, nullable = false)
     private double price;
 
-
+    @ManyToOne
+    @JoinColumn(name = "ID")
+    private Store store;
 
 }

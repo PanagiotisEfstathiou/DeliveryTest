@@ -15,6 +15,8 @@ public class SampleContent extends BaseComponent implements CommandLineRunner {
     private final AccountService accountService;
     private final ProductService productService;
 
+    private final StoreService storeService;
+
 
     @Override
     public void run(String... args) throws Exception {
@@ -32,7 +34,8 @@ public class SampleContent extends BaseComponent implements CommandLineRunner {
         logger.info("Accounts created: {}.", accounts);
 
         List<Product> products = productService.createAll(
-                Product.builder().name("daada").price(16).serial("s dfsdfsds").build()
+                Product.builder().name("TEST").price(16).serial("s dfsdfsds").build()
         );
+
     }
 }
