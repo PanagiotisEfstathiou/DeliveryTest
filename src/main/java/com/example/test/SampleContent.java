@@ -37,5 +37,8 @@ public class SampleContent extends BaseComponent implements CommandLineRunner {
                 Product.builder().name("TEST").price(16).serial("s dfsdfsds").build()
         );
 
+        List<Store> stores = storeService.createAll(
+                Store.builder().catalog(products).storeName("gahg").storeRegion("saghxjgsa").storeCategory(StoreCategory.CHINESE).build()
+        );
     }
 }

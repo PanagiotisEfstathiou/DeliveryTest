@@ -3,7 +3,7 @@ package com.example.test;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.List;
 
 @Setter
 @Getter
@@ -11,7 +11,7 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "STORES", indexes = {@Index(name = "STORE_IDX_01", columnList = "storeName")})
+@Table(name = "STORESTEST", indexes = {@Index(name = "STORE_IDX_01", columnList = "storeName")})
 @SequenceGenerator(name = "storeIdGenerator", sequenceName = "STORE_SEQ", allocationSize = 1)
 @NoArgsConstructor
 public class Store extends BaseModel {
@@ -29,9 +29,8 @@ public class Store extends BaseModel {
 
 
     @Column
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "store", cascade = CascadeType.ALL)
-    private Set<Product> catalog;
-
+    @OneToMany()
+    private List<Product> catalog;
 
 
 
